@@ -80,6 +80,13 @@
 						<version>5.2.0-M1</version>
 					</dependency>
 				</dependencies>
+				<configuration>
+					<properties>
+						<configurationParameters>
+							junit.jupiter.execution.parallel.enabled=true
+						</configurationParameters>
+					</properties>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
