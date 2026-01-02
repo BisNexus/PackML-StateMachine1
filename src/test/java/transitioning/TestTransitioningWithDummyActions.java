@@ -2,10 +2,8 @@ package transitioning;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-import org.junit.jupiter.api.Order;
 
 import statemachine.Isa88StateMachine;
 import statemachine.StateMachineBuilder;
@@ -18,6 +16,11 @@ class TestTransitioningWithDummyActions {
 
 	private final static int dummyActionTime = 300;
 	private IStateAction dummyAction = new DummyAction(dummyActionTime);
+
+	@BeforeEach
+	void printTestName(TestInfo testInfo) {
+		System.out.println("Starting test: " + testInfo.getDisplayName());
+	}
 
 	@Test
 	//@Order(1)
