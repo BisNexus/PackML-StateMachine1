@@ -20,14 +20,14 @@ class TestTransitioningWithDummyActions {
 	private IStateAction dummyAction = new DummyAction(dummyActionTime);
 
 	@Test
-	@Order(1)
+	//@Order(1)
 	void testSimpleSetup() {
 		Isa88StateMachine stateMachine = new StateMachineBuilder().build();
 		assertTrue(stateMachine.getState() instanceof IdleState, "After setup, state machine should be in IdleState");
 	}
 
 	@Test
-	@Order(2)
+	//@Order(2)
 	void testOtherInitialState() {
 		// Setup machine in stopped state
 		Isa88StateMachine stateMachine = new StateMachineBuilder().withInitialState(new StoppedState()).build();
