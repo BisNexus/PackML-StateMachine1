@@ -2,11 +2,8 @@ package transitioning;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
-import org.junit.jupiter.api.Order;
 
 import statemachine.Isa88StateMachine;
 import statemachine.StateMachineBuilder;
@@ -25,8 +22,18 @@ public class TestTransitioningWithoutActions {
 		stateMachine = new StateMachineBuilder().build();
 	}
 
+	@BeforeEach
+	void printTestName(TestInfo testInfo) {
+		System.out.println("Starting test: " + testInfo.getDisplayName());
+	}
+
+	@AfterEach
+	void checkTestCompletion(TestInfo testInfo) {
+		System.out.println("Completed test: " + testInfo.getDisplayName());
+	}
+
 	@Test
-	@Order(2)
+	//@Order(2)
 	void testOtherInitialState() throws InterruptedException {
 		stateMachine.start();
 		stateMachine.abort();
