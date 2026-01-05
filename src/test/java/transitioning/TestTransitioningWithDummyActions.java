@@ -21,6 +21,11 @@ class TestTransitioningWithDummyActions {
 	void printTestName(TestInfo testInfo) {
 		System.out.println("Starting test: " + testInfo.getDisplayName());
 	}
+	
+	@AfterEach
+	void checkTestCompletion(TestInfo testInfo) {
+	    System.out.println("Completed test: " + testInfo.getDisplayName());
+	}
 
 	@Test
 	//@Order(1)
